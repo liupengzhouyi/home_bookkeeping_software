@@ -30,13 +30,13 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
 
-  String _id = "";
   String _name = "";
   SonOverheadItems sonOverHeadItems;
 
   void _incrementCounter() {
     setState(() {
-      sonOverHeadItems = SonOverheadItems(_name);
+      sonOverHeadItems = new SonOverheadItems();
+      sonOverHeadItems.setName(_name);
     });
   }
 

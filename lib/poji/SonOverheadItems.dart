@@ -1,8 +1,8 @@
 class SonOverheadItems{
 
-  int _id = 0;
-  String _name = "";
-  String _datetime = "";
+  int _id;
+  String _name;
+  String _datetime;
 
 
   int get id => _id;
@@ -19,14 +19,14 @@ class SonOverheadItems{
     _datetime = value;
   }
 
-  set name(String value) {
+  setName(String value) {
     _name = value;
   }
 
-  SonOverheadItems(name) {
-    _id = 0;
-    _name = name;
-    _datetime = "${DateTime.now().year} - ${DateTime.now().month} - ${DateTime.now().day} ${DateTime.now().hour} - ${DateTime.now().minute} - ${DateTime.now().second}";
+
+  SonOverheadItems() {
+    this._id = 0;
+    this._datetime = "${DateTime.now().year} - ${DateTime.now().month} - ${DateTime.now().day} ${DateTime.now().hour} : ${DateTime.now().minute} : ${DateTime.now().second}";
   }
 
   @override
