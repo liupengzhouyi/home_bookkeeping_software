@@ -33,10 +33,12 @@ class _MyHomePageState extends State<MyHomePage> {
   String _name = "";
   SonOverheadItems sonOverHeadItems;
 
+
+  TextEditingController _controller = new TextEditingController();
+
   void _incrementCounter() {
     setState(() {
-      sonOverHeadItems = new SonOverheadItems();
-      sonOverHeadItems.setName(_name);
+      sonOverHeadItems = new SonOverheadItems(name: _controller.text);
     });
   }
 
@@ -52,12 +54,10 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             new TextFormField(
+              controller: _controller,
               decoration: new InputDecoration(
                 labelText: '消费明目',
               ),
-              onSaved: (val) {
-                _name = val;
-              },
             ),
             print(),
           ],
@@ -79,3 +79,4 @@ class _MyHomePageState extends State<MyHomePage> {
     }
   }
 }
+
