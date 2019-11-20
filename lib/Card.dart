@@ -23,6 +23,8 @@ class MyApp extends StatelessWidget {
 }
 
 class MyCard extends StatefulWidget {
+
+
   @override
   State<StatefulWidget> createState() {
     return new MyCardState();
@@ -30,6 +32,7 @@ class MyCard extends StatefulWidget {
 }
 
 class MyCardState extends State<MyCard> {
+
   var _throwShotAway = false;
 
   @override
