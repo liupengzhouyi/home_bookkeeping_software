@@ -36,14 +36,14 @@ class MyApp extends StatelessWidget {
                     new Center(
                       child: new Column(
                         children: <Widget>[
-                          new FlutterCardWidget(information:"必要消费", informationI:"${123}"),
+                          new FlutterCardWidget(information:"必要消费", informationI:"${123}", type: 1,),
                         ],
                       ),
                     ),
                     new Center(
                       child: new Column(
                         children: <Widget>[
-                          new FlutterCardWidget(information:"非必要消费", informationI:"${123}"),
+                          new FlutterCardWidget(information:"非必要消费", informationI:"${123}", type: 1,),
                         ],
                       ),
                     ),
@@ -65,7 +65,9 @@ class FlutterCardWidget extends StatelessWidget {
   String information;
   String informationI;
 
-  FlutterCardWidget({this.information, this.informationI});
+  int type;
+
+  FlutterCardWidget({this.information, this.informationI, this.type});
 
   @override
   Widget build(BuildContext context) {
@@ -84,9 +86,13 @@ class FlutterCardWidget extends StatelessWidget {
   }
 
   getChild(String information, String informationI) {
+    double width = 300.0;
+    if (type == 1) {
+      width = 150.0;
+    }
     return Container(
       color: Colors.deepPurpleAccent,
-      width: 150,
+      width: width,
       height: 100,
       alignment: Alignment.center,
       child: Column(
