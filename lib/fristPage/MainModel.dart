@@ -1,7 +1,12 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:home_bookkeeping_software/fristPage/test.dart';
+import 'package:home_bookkeeping_software/listPage/ConsumptionThisMonth.dart';
+import 'package:home_bookkeeping_software/listPage/ConsumptionToday.dart';
+import 'package:home_bookkeeping_software/listPage/EssentialConsumptionToday.dart';
+import 'package:home_bookkeeping_software/listPage/NecessarySpendingThisMonth.dart';
+import 'package:home_bookkeeping_software/listPage/NonessentialConsumptionThisMonth.dart';
+import 'package:home_bookkeeping_software/listPage/NonessentialConsumptionToday.dart';
 
 
 class MainModel extends StatelessWidget {
@@ -29,27 +34,55 @@ class MainModel extends StatelessWidget {
           new Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              new FlutterCardWidget(information:"今日消费", informationI:"${this.todayAll}"),
+              new FlutterCardWidget(
+                information:"今日消费",
+                informationI:"${this.todayAll}",
+                detailsPage: new ConsumptionToday(title: "今日消费",),
+              ),
             ],
           ),
           new Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              new FlutterCardWidget(information:"今日必要消费", informationI:"${this.todayNecessary}", type: 1,),
-              new FlutterCardWidget(information:"今日非必要消费", informationI:"${this.todayUnnecessary}", type: 1,),
+              new FlutterCardWidget(
+                information:"今日必要消费",
+                informationI:"${this.todayNecessary}",
+                type: 1,
+                detailsPage: new EssentialConsumptionToday(title: "今日必要消费",),
+              ),
+              new FlutterCardWidget(
+                information:"今日非必要消费",
+                informationI:"${this.todayUnnecessary}",
+                type: 1,
+                detailsPage: new NonessentialConsumptionToday(title: "今日非必要消费",),
+              ),
             ],
           ),
           new Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              new FlutterCardWidget(information:"本月消费", informationI:"${this.monthAll}"),
+              new FlutterCardWidget(
+                information:"本月消费",
+                informationI:"${this.monthAll}",
+                detailsPage: new ConsumptionThisMonth(title: "本月消费",),
+              ),
             ],
           ),
           new Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              new FlutterCardWidget(information:"本月必要消费", informationI:"${this.monthNecessary}", type: 1,),
-              new FlutterCardWidget(information:"本月非必要消费", informationI:"${this.monthUnnecessary}", type: 1,),
+              new FlutterCardWidget(
+                information:"本月必要消费",
+                informationI:"${this.monthNecessary}",
+                type: 1,
+                detailsPage: new NecessarySpendingThisMonth(title: "本月必要消费",),
+              ),
+              new FlutterCardWidget(
+                information:"本月非必要消费",
+                informationI:"${this.monthUnnecessary}",
+                type: 1,
+                detailsPage: new NonessentialConsumptionThisMonth(title: "本月非必要消费",),
+              ),
             ],
           ),
       ]
@@ -63,10 +96,10 @@ class FlutterCardWidget extends StatelessWidget {
 
   String information;
   String informationI;
-
+  Widget detailsPage;
   int type;
 
-  FlutterCardWidget({this.information, this.informationI, this.type});
+  FlutterCardWidget({this.information, this.informationI, this.type, this.detailsPage});
 
   @override
   Widget build(BuildContext context) {
@@ -111,9 +144,9 @@ class FlutterCardWidget extends StatelessWidget {
           Navigator.push(
               context,
               new MaterialPageRoute(
-                  builder: (context) => new SecondePage(
-                    title: '第二个页面',
-                  )));
+                  builder: (context) => this.detailsPage
+              )
+          );
         },
     );
   }
