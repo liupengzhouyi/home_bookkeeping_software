@@ -32,6 +32,7 @@ class MyApp extends StatelessWidget {
               monthNecessary: 1000,
               monthUnnecessary: 2000,
             ),
+            //new FlutterCardWidget(information:"本月非必要消费", informationI:"${123}", type: 1,),
           ],
         ),
       ),
