@@ -16,10 +16,26 @@ class MyApp extends StatelessWidget {
         appBar: new AppBar(
           title: new Text("ListTile"),
         ),
-        body: new MyCard(),
+        body: new Column(
+          children: <Widget>[
+            new MyCard(),
+            new RaisedButton(
+              child: new Text("点我返回"),
+              onPressed: () {
+                _incrementCounter(context);
+              },
+            ),
+          ],
+        ),
       ),
     );
   }
+
+  _incrementCounter(BuildContext context) {
+    // 使用 Navigator 跳转页面
+    Navigator.pop(context);
+  }
+
 }
 
 class MyCard extends StatefulWidget {

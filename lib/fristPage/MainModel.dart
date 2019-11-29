@@ -101,7 +101,8 @@ class FlutterCardWidget extends StatelessWidget {
       //对Widget截取的行为，比如这里 Clip.antiAlias 指抗锯齿
       clipBehavior: Clip.antiAlias,
       semanticContainer: false,
-      child: getChild(information,informationI),
+      child: new Text("jvgh"),
+      //child: getChild(information,informationI),
     );
   }
 
