@@ -98,19 +98,6 @@ class MyCardState extends State<MyCard> {
             );
           },
         ),
-        Divider(),// 分割线
-        ListTile(
-          leading: Icon(Icons.adjust,color: Colors.deepOrange),
-          title: Text('${DateTime.now()}',style: TextStyle(fontWeight: FontWeight.w500),),
-          subtitle: Text('小灰灰：13885458655'),
-        ),
-        Divider(), // 分割线
-        ListTile(
-          leading: Icon(Icons.adjust,color: Colors.lightBlue),
-          title: Text('${DateTime.now()}}',style: TextStyle(fontWeight: FontWeight.w500),),
-          subtitle: Text('小灰灰：小灰灰：13885458655'),
-        )
-      ],
     );*/
   }
 }

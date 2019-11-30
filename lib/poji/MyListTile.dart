@@ -9,6 +9,7 @@ Future<String> _loadMemberJson() async {
   return await rootBundle.loadString('assets/jsondata.json');
 }
 
+// 解析JSON
 void main() async {
 
   String memberListJson = await _loadMemberJson();
