@@ -2,6 +2,8 @@
  * ListTile
  */
 import 'package:flutter/material.dart';
+import 'package:home_bookkeeping_software/poji/ListRunningAccount.dart';
+import 'package:home_bookkeeping_software/poji/RunningAccount.dart';
 
 import 'ShowList.dart';
 
@@ -22,12 +24,6 @@ class MyApp extends StatelessWidget {
         body: new Column(
           children: <Widget>[
             new MyCard(),
-            new RaisedButton(
-              child: new Text("点我返回"),
-              onPressed: () {
-                _incrementCounter(context);
-              },
-            ),
           ],
         ),
       ),
@@ -54,10 +50,40 @@ class MyCardState extends State<MyCard> {
 
   var _throwShotAway = false;
 
+  List<RunningAccount> list = new List();
+
+  // RunningAccount
+  void paly() {
+    RunningAccount runningAccount = null;
+    for (int i=0;i<10;i++) {
+      runningAccount = new RunningAccount(
+          id: i,
+          necessaryconsume: 0,
+          itemsnumber: 123,
+          amount: 0,
+          datetime: new DateTime.now(),
+          remarks: "string",
+          city: "string",
+          latitude: 0,
+          llongitude: 0
+      );
+      list.add(runningAccount);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    return new Column(
+    paly();
+    return ListView.builder(
+      itemCount: list.length,
+      itemBuilder: (context, index) => new Text("test"),
+    );
+    /*new Column(
       children: <Widget>[
+        // new ListRunningAccount(list: list,)
+
+      ],*/
+      /*children: <Widget>[
         ListTile(
           // Icon 图标
           leading: Icon(Icons.account_balance,color: Colors.lightBlue,),
@@ -85,6 +111,6 @@ class MyCardState extends State<MyCard> {
           subtitle: Text('小灰灰：小灰灰：13885458655'),
         )
       ],
-    );
+    );*/
   }
 }

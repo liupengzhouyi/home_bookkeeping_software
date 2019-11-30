@@ -20,6 +20,28 @@ class RunningAccount {
   String toString() {
     return 'RunningAccount{id: $id, necessaryconsume: $necessaryconsume, itemsnumber: $itemsnumber, amount: $amount, datetime: $datetime, remarks: $remarks, city: $city, latitude: $latitude, llongitude: $llongitude}';
   }
+  
+  /*factory RunningAccount.fromJson(Map<String, dynamic> json) {
+    return RunningAccount(id:json['id'], necessaryconsume:json['necessaryconsume'], itemsnumber:json['itemsnumber'], amount:json['amount'],
+        datetime:DateTime.now(), remarks:json['remarks'], city:json['city'], latitude:json['latitude'], llongitude:json['llongitude']);
+  }*/
+
+  factory RunningAccount.fromJson(Map<String, dynamic> json) {
+    return RunningAccount(id:1, necessaryconsume:1, itemsnumber:1, amount:12.3,
+        datetime:DateTime.now(), remarks:json['remarks'], city:json['city'], latitude:34, llongitude:45);
+  }
+
+}
+
+class RunningAccountList {
+  List<RunningAccount> runningAccountList;
 
 
+  RunningAccountList({this.runningAccountList});
+
+  factory RunningAccountList.fromJson(List<dynamic> listjson) {
+    List<RunningAccount> runningAccountList =
+    listjson.map((value) => RunningAccount.fromJson(value)).toList();
+    return RunningAccountList(runningAccountList: runningAccountList);
+  }
 }
