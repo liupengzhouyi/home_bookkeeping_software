@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:home_bookkeeping_software/poji/testData.dart';
 
 class ConsumptionToday extends StatefulWidget {
   ConsumptionToday({Key key, this.title}) : super(key: key);
@@ -28,20 +29,7 @@ class _ConsumptionToday extends State<ConsumptionToday> {
         title: Text(widget.title),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text("日期：${DateTime.now().year} - ${DateTime.now().month} - ${DateTime.now().day}"),
-            Text("时间: ${DateTime.now().hour}:${DateTime.now().minute}:${DateTime.now().second}"),
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.display1,
-            ),
-          ],
-        ),
+        child: MyCard(),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
