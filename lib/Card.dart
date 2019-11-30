@@ -3,6 +3,9 @@
  */
 import 'package:flutter/material.dart';
 
+import 'ShowList.dart';
+
+
 void main() {
   runApp(new MyApp());
 }
@@ -56,22 +59,30 @@ class MyCardState extends State<MyCard> {
     return new Column(
       children: <Widget>[
         ListTile(
+          // Icon 图标
+          leading: Icon(Icons.account_balance,color: Colors.lightBlue,),
           title: Text('${123.45}', style: TextStyle(fontWeight: FontWeight.w500),),
           subtitle: Text('${DateTime.now()}' + '曾小晖：小灰灰：13885458655'),
-          leading: Icon(Icons.adjust,color: Colors.lightBlue,),
-          // Icon 图标
+          onTap: () {
+            Navigator.push(
+                context,
+                new MaterialPageRoute(
+                    builder: (context) => new DayList(date: "2019-11-18",)
+                )
+            );
+          },
         ),
         Divider(),// 分割线
         ListTile(
+          leading: Icon(Icons.adjust,color: Colors.deepOrange),
           title: Text('${DateTime.now()}',style: TextStyle(fontWeight: FontWeight.w500),),
           subtitle: Text('小灰灰：13885458655'),
-          leading: Icon(Icons.adjust,color: Colors.deepOrange),
         ),
         Divider(), // 分割线
         ListTile(
-          title: Text('${DateTime.now()}',style: TextStyle(fontWeight: FontWeight.w500),),
-          subtitle: Text('小灰灰：小灰灰：13885458655'),
           leading: Icon(Icons.adjust,color: Colors.lightBlue),
+          title: Text('${DateTime.now()}}',style: TextStyle(fontWeight: FontWeight.w500),),
+          subtitle: Text('小灰灰：小灰灰：13885458655'),
         )
       ],
     );
