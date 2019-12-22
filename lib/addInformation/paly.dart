@@ -21,14 +21,16 @@ double llongitude;*/
 class _HomePageState extends State<HomePage> {
   GlobalKey<FormState> _formKey = new GlobalKey<FormState>();
 
-
+  // ID
   // int id;
   // 是否是必要消费
-  int necessaryconsume;
+  //int necessaryconsume;
+  String necessaryconsume;
   // 子类消费明目ID
   int itemsnumber;
   // 金额
-  double amount;
+  // double amount;
+  String amount;
   // 日期
   DateTime datetime;
   // 备注
@@ -44,6 +46,7 @@ class _HomePageState extends State<HomePage> {
 
   String _password;
 
+  var _selectType;
 
   void _forSubmitted() {
     var _form = _formKey.currentState;
@@ -74,6 +77,7 @@ class _HomePageState extends State<HomePage> {
             key: _formKey,
             child: new Column(
               children: <Widget>[
+                // 消费日期-时间
                 new TextFormField(
                   decoration: new InputDecoration(
                     labelText: 'Your Name',
@@ -82,16 +86,43 @@ class _HomePageState extends State<HomePage> {
                     _name = val;
                   },
                 ),
+                // 子类消费明目
+                new TextFormField(
+                  decoration: new InputDecoration(
+                    labelText: '子类消费明目',
+                  ),
+                  obscureText: true,
+                  onSaved: (val) {
+                    _password = val;
+                  },
+                ),
+                // 金额
+                new TextFormField(
+                  decoration: new InputDecoration(
+                    labelText: '金额',
+                  ),
+                  // obscureText: true,
+                  onSaved: (val) {
+                    amount = val;
+                  },
+                ),
+                // 备注
                 new TextFormField(
                   decoration: new InputDecoration(
                     labelText: 'Password',
                   ),
-                  obscureText: true,
-                  validator: (val) {
-                    return val.length < 4 ? "密码长度错误" : null;
-                  },
+                  // obscureText: true,
                   onSaved: (val) {
-                    _password = val;
+                    remarks = val;
+                  },
+                ),
+                // necessaryconsume
+                new TextFormField(
+                  decoration: new InputDecoration(
+                    labelText: 'Your Name',
+                  ),
+                  onSaved: (val) {
+                    necessaryconsume = val;
                   },
                 ),
               ],
@@ -102,3 +133,4 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
+
