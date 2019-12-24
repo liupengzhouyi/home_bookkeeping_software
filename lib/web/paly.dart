@@ -1,11 +1,21 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 
-void main() {
-  debugPaintSizeEnabled = true;      //打开视觉调试开关
-  runApp(MyApp());
+import 'package:flutter/material.dart';
+import 'package:dio/dio.dart';
+
+
+
+void getHttp() async {
+  try {
+    Response response = await Dio().get("https://bing.com");
+    print(response);
+  } catch (e) {
+    print(e);
+  }
 }
 
+
+
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
@@ -43,6 +53,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    getHttp();
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
